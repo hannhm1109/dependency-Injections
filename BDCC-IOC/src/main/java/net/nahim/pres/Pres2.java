@@ -10,26 +10,21 @@ import java.lang.reflect.Method;
 import java.util.Scanner;
 
 public class Pres2 {
-    //FileNotFoundException, ClassNotFoundException, InstantiationException, IllegalAccessException,NoSuchMethodException, InvocationTargetException
+    // FileNotFoundException, ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(new File("config.txt"));
 
         String daoClassName = scanner.nextLine();
         Class cDao = Class.forName(daoClassName);
-        IDao d = (IDao) cDao.newInstance();
-        //System.out.println(dao.getData());
+        IDao d=(IDao) cDao.newInstance();
 
         String metierClassName = scanner.nextLine();
         Class cMetier = Class.forName(metierClassName);
-        IMetier metier = (IMetier) cMetier.getConstructor(IDao.class).newInstance(d); //via constructor
-
+        IMetier metier= (IMetier) cMetier.getConstructor(IDao.class).newInstance(d);
         //IMetier metier = (IMetier) cMetier.getConstructor().newInstance();
-        //Method setDao = cMetier.getDeclaredMethod("setDao", IDao.class);
-        //setDao.invoke(metier, d);
+        //Method setDao = cMetier.getDeclaredMethod("setDao",IDao.class);
+        //setDao.invoke(metier,d);
 
-        System.out.println("RES+ "+metier.calcul());
-
-
+        System.out.println("RES="+metier.calcul());
     }
 }
-
