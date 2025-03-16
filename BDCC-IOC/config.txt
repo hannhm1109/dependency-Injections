@@ -1,2 +1,2 @@
-net.nahim.dao.DaoImpl
+net.nahim.ext.DaoImplV2
 net.nahim.metier.MetierImpl
